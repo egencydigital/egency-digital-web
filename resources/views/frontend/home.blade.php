@@ -81,64 +81,65 @@
 
 
         .card {
-    position: relative;
-    border-radius: 1.5rem;       /* 24px */
-    overflow: hidden;
-    cursor: pointer;
-    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.08);
-    transition: transform 0.5s ease, box-shadow 0.5s ease;
-}
+            position: relative;
+            border-radius: 1.5rem;
+            /* 24px */
+            overflow: hidden;
+            cursor: pointer;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.08);
+            transition: transform 0.5s ease, box-shadow 0.5s ease;
+        }
 
-.card:hover {
-    transform: translateY(-12px);
-    box-shadow: 0 35px 70px -12px rgba(0, 0, 0, 0.12);
-}
+        .card:hover {
+            transform: translateY(-12px);
+            box-shadow: 0 35px 70px -12px rgba(0, 0, 0, 0.12);
+        }
 
-.card img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
+        .card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
 
-.overlay {
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.15) 60%);
-    color: white;
-    padding: 18px 28px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    gap: 1rem;
-}
+        .overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.85) 0%, rgba(0, 0, 0, 0.15) 60%);
+            color: white;
+            padding: 18px 28px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            gap: 1rem;
+        }
 
-.overlay p {
-    font-size: 0.875rem;
-    font-weight: 500;
-    opacity: 0.9;
-}
+        .overlay p {
+            font-size: 0.875rem;
+            font-weight: 500;
+            opacity: 0.9;
+        }
 
-.overlay h3 {
-    line-height: 1.3;
-    font-size: 16px;
-}
+        .overlay h3 {
+            line-height: 1.3;
+            font-size: 16px;
+        }
 
-.overlay button {
-    opacity: 0;
-    transform: translateY(16px);
-    transition: all 0.4s ease;
-    background: #14b8a6;
-    color: white;
-    padding: 0.75rem 1.5rem;
-    border-radius: 9999px;
-    font-weight: 500;
-    align-self: flex-start;
-}
+        .overlay button {
+            opacity: 0;
+            transform: translateY(16px);
+            transition: all 0.4s ease;
+            background: #14b8a6;
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 9999px;
+            font-weight: 500;
+            align-self: flex-start;
+        }
 
-.card:hover .overlay button {
-    opacity: 1;
-    transform: translateY(0);
-}
+        .card:hover .overlay button {
+            opacity: 1;
+            transform: translateY(0);
+        }
     </style>
 
 
@@ -264,151 +265,170 @@
         </div>
     </div>
 
+    <section class="">
+        <div class="max-w-7xl mx-auto px-6 grid grid-cols-4">
+            <div class="bg-neutral-primary-soft block max-w-sm border border-default rounded-base shadow-xs">
+                <a href="#">
+                    <img class="rounded-t-base" src="/docs/images/blog/image-1.jpg" alt="" />
+
+                <div class="p-6 text-center">
+                        <h5 class="mt-3 mb-6 text-2xl font-semibold tracking-tight text-heading">Streamlining your design
+                            process today.</h5>
+                    </a>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+
+
     {{-- <x-blog-featured-insights /> --}}
 
 
-<section class="py-28 bg-[#f5f5f5] overflow-hidden">
-    <div class="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-16 xl:gap-0">
+    <section class="pt-28 bg-[#f5f5f5] overflow-hidden">
+        <div class="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-16 xl:gap-0">
 
-        <!-- LEFT CONTENT -->
-        <div class="sticky top-32 h-fit lg:pr-8">
-            <p class="text-teal-500 tracking-[4px] uppercase mb-6 font-medium">
-                Featured Insights
-            </p>
+            <!-- LEFT CONTENT -->
+            <div class="sticky top-32 h-fit lg:pr-8">
+                <p class="text-teal-500 tracking-[4px] uppercase mb-6 font-medium">
+                    Featured Insights
+                </p>
 
-            <h2 class="text-5xl md:text-6xl font-semibold leading-tight text-gray-900 mb-6">
-                Stories of our transformations across Services and Industries
-            </h2>
+                <h2 class="text-5xl md:text-6xl font-semibold leading-tight text-gray-900 mb-6">
+                    Stories of our transformations across Services and Industries
+                </h2>
 
-            <p class="text-xl md:text-2xl text-gray-600 mb-10">
-                From Concept to Completion
-            </p>
+                <p class="text-xl md:text-2xl text-gray-600 mb-10">
+                    From Concept to Completion
+                </p>
 
-            <button class="bg-teal-500 hover:bg-teal-600 text-white px-10 py-5 rounded-full text-lg font-medium transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105">
-                Explore More
-            </button>
-        </div>
-
-        <!-- RIGHT SIDE -->
-        <div class="flex gap-8 relative">
-
-            <!-- COLUMN 1 (2 CARDS) -->
-            <div class="flex flex-col gap-8 w-1/3 parallax-slow">
-
-                <div class="card h-[280px]">
-                    <img src="https://images.unsplash.com/photo-1556740738-b6a63e27c4df?w=800" />
-                    <div class="overlay">
-                        <div>
-                            <p>Case Study</p>
-                            <h3 class="text-xl font-semibold mt-2">
-                                US Fashion Resale Platform Scales to 100K Monthly Transactions
-                            </h3>
-                        </div>
-                        <button>Read More →</button>
-                    </div>
-                </div>
-
-                <div class="card h-[280px]">
-                    <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=800" />
-                    <div class="overlay">
-                        <div>
-                            <p>Blogs</p>
-                            <h3 class="text-xl font-semibold mt-2">
-                                How Cloud Computing Can Transform Small Businesses
-                            </h3>
-                        </div>
-                        <button>Explore →</button>
-                    </div>
-                </div>
-                <div class="card h-[280px]">
-                    <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=800" />
-                    <div class="overlay">
-                        <div>
-                            <p>Blogs</p>
-                            <h3 class="text-xl font-semibold mt-2">
-                                How Cloud Computing Can Transform Small Businesses
-                            </h3>
-                        </div>
-                        <button>Explore →</button>
-                    </div>
-                </div>
-
+                <button
+                    class="bg-teal-500 hover:bg-teal-600 text-white px-10 py-5 rounded-full text-lg font-medium transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105">
+                    Explore More
+                </button>
             </div>
 
-            <!-- COLUMN 2 (3 CARDS) -->
-            <div class="flex flex-col gap-8 w-1/3 mt-20 parallax-fast">
+            <!-- RIGHT SIDE -->
+            <div class="flex gap-8 relative">
 
-                <div class="card h-[280px]">
-                    <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800" />
-                    <div class="overlay">
-                        <div>
-                            <p>Blogs</p>
-                            <h3 class="text-xl font-semibold mt-2">
-                                Custom Web Application Development
-                            </h3>
+                <!-- COLUMN 1 (2 CARDS) -->
+                <div class="flex flex-col gap-8 w-1/3 parallax-slow">
+
+                    <div class="card h-[280px]">
+                        <img src="https://images.unsplash.com/photo-1556740738-b6a63e27c4df?w=800" />
+                        <div class="overlay">
+                            <div>
+                                <p>Case Study</p>
+                                <h3 class="text-xl font-semibold mt-2">
+                                    US Fashion Resale Platform Scales to 100K Monthly Transactions
+                                </h3>
+                            </div>
+                            <button>Read More →</button>
                         </div>
-                        <button>Explore →</button>
                     </div>
+
+                    <div class="card h-[280px]">
+                        <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=800" />
+                        <div class="overlay">
+                            <div>
+                                <p>Blogs</p>
+                                <h3 class="text-xl font-semibold mt-2">
+                                    How Cloud Computing Can Transform Small Businesses
+                                </h3>
+                            </div>
+                            <button>Explore →</button>
+                        </div>
+                    </div>
+                    <div class="card h-[280px]">
+                        <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=800" />
+                        <div class="overlay">
+                            <div>
+                                <p>Blogs</p>
+                                <h3 class="text-xl font-semibold mt-2">
+                                    How Cloud Computing Can Transform Small Businesses
+                                </h3>
+                            </div>
+                            <button>Explore →</button>
+                        </div>
+                    </div>
+
                 </div>
 
-                <div class="card h-[280px]">
-                    <img src="https://images.unsplash.com/photo-1492724441997-5dc865305da7?w=800" />
-                    <div class="overlay">
-                        <div>
-                            <p>Case Study</p>
-                            <h3 class="text-xl font-semibold mt-2">
-                                Shopify Migration Drives 55% Growth
-                            </h3>
+                <!-- COLUMN 2 (3 CARDS) -->
+                <div class="flex flex-col gap-8 w-1/3 mt-20 parallax-fast">
+
+                    <div class="card h-[280px]">
+                        <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800" />
+                        <div class="overlay">
+                            <div>
+                                <p>Blogs</p>
+                                <h3 class="text-xl font-semibold mt-2">
+                                    Custom Web Application Development
+                                </h3>
+                            </div>
+                            <button>Explore →</button>
                         </div>
-                        <button>View Case →</button>
                     </div>
+
+                    <div class="card h-[280px]">
+                        <img src="https://images.unsplash.com/photo-1492724441997-5dc865305da7?w=800" />
+                        <div class="overlay">
+                            <div>
+                                <p>Case Study</p>
+                                <h3 class="text-xl font-semibold mt-2">
+                                    Shopify Migration Drives 55% Growth
+                                </h3>
+                            </div>
+                            <button>View Case →</button>
+                        </div>
+                    </div>
+
+                    <div class="card h-[280px]">
+                        <img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?w=800" />
+                        <div class="overlay">
+                            <div>
+                                <p>Blogs</p>
+                                <h3 class="text-xl font-semibold mt-2">
+                                    Trends of Mobile Design
+                                </h3>
+                            </div>
+                            <button>Read →</button>
+                        </div>
+                    </div>
+
                 </div>
 
-                <div class="card h-[280px]">
-                    <img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?w=800" />
-                    <div class="overlay">
-                        <div>
-                            <p>Blogs</p>
-                            <h3 class="text-xl font-semibold mt-2">
-                                Trends of Mobile Design
-                            </h3>
+                <!-- COLUMN 3 (3 CARDS) -->
+                <div class="hidden lg:flex flex-col gap-8 w-1/3 mt-40 parallax-slow">
+
+                    <div class="card h-[280px]">
+                        <img src="https://images.unsplash.com/photo-1556740738-b6a63e27c4df?w=800" />
+                        <div class="overlay">
+                            <div>
+                                <p>Case Study</p>
+                                <h3 class="text-xl font-semibold mt-2">
+                                    Hospitality AI Platform Reconciles $300M+
+                                </h3>
+                            </div>
+                            <button>Read Case →</button>
                         </div>
-                        <button>Read →</button>
                     </div>
-                </div>
 
-            </div>
-
-            <!-- COLUMN 3 (3 CARDS) -->
-            <div class="hidden lg:flex flex-col gap-8 w-1/3 mt-40 parallax-slow">
-
-                <div class="card h-[280px]">
-                    <img src="https://images.unsplash.com/photo-1556740738-b6a63e27c4df?w=800" />
-                    <div class="overlay">
-                        <div>
-                            <p>Case Study</p>
-                            <h3 class="text-xl font-semibold mt-2">
-                                Hospitality AI Platform Reconciles $300M+
-                            </h3>
+                    <div class="card h-[280px]">
+                        <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=800" />
+                        <div class="overlay">
+                            <div>
+                                <p>Case Study</p>
+                                <h3 class="text-xl font-semibold mt-2">
+                                    Pakistan Furniture Leader Migration
+                                </h3>
+                            </div>
+                            <button>Read Case →</button>
                         </div>
-                        <button>Read Case →</button>
                     </div>
-                </div>
 
-                <div class="card h-[280px]">
-                    <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=800" />
-                    <div class="overlay">
-                        <div>
-                            <p>Case Study</p>
-                            <h3 class="text-xl font-semibold mt-2">
-                                Pakistan Furniture Leader Migration
-                            </h3>
-                        </div>
-                        <button>Read Case →</button>
-                    </div>
-                </div>
-
-                {{-- <div class="card h-[280px]">
+                    {{-- <div class="card h-[280px]">
                     <img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?w=800" />
                     <div class="overlay">
                         <div>
@@ -421,37 +441,37 @@
                     </div>
                 </div> --}}
 
+                </div>
+
             </div>
-
         </div>
-    </div>
-</section>
+    </section>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
 
-<script>
-    gsap.registerPlugin(ScrollTrigger);
+    <script>
+        gsap.registerPlugin(ScrollTrigger);
 
-    gsap.to(".parallax-slow", {
-        y: -120,
-        scrollTrigger: {
-            trigger: ".parallax-slow",
-            start: "top bottom",
-            end: "bottom top",
-            scrub: 1.2,
-        }
-    });
+        gsap.to(".parallax-slow", {
+            y: -120,
+            scrollTrigger: {
+                trigger: ".parallax-slow",
+                start: "top bottom",
+                end: "bottom top",
+                scrub: 1.2,
+            }
+        });
 
-    gsap.to(".parallax-fast", {
-        y: -200,
-        scrollTrigger: {
-            trigger: ".parallax-fast",
-            start: "top bottom",
-            end: "bottom top",
-            scrub: 1.2,
-        }
-    });
-</script>
+        gsap.to(".parallax-fast", {
+            y: -200,
+            scrollTrigger: {
+                trigger: ".parallax-fast",
+                start: "top bottom",
+                end: "bottom top",
+                scrub: 1.2,
+            }
+        });
+    </script>
 
 @endsection
