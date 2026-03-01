@@ -4,6 +4,14 @@
 
 @section('body')
     <style>
+
+        .card-bg-image{
+            background-image: url('images/advance-img.png');
+            /* background-size: cover;
+            background-position: center; */
+        }
+
+
         @keyframes scroll {
             0% {
                 transform: translateX(0);
@@ -106,7 +114,7 @@
             inset: 0;
             background: linear-gradient(to top, rgba(0, 0, 0, 0.85) 0%, rgba(0, 0, 0, 0.15) 60%);
             color: white;
-            padding: 18px 28px;
+            padding: 14px 24px;
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -128,9 +136,10 @@
             opacity: 0;
             transform: translateY(16px);
             transition: all 0.4s ease;
-            background: #14b8a6;
+            background: #CC071E;
+            font-size: 14px;
             color: white;
-            padding: 0.75rem 1.5rem;
+            padding: 0.65rem 1.5rem;
             border-radius: 9999px;
             font-weight: 500;
             align-self: flex-start;
@@ -140,8 +149,101 @@
             opacity: 1;
             transform: translateY(0);
         }
+
+        *======Container======*/ .project-item {
+            padding: 60px 20px;
+            display: flex;
+            justify-content: center;
+        }
+
+        /* ====== Laptop Container ====== */
+        .laptop-container {
+            position: relative;
+            max-width: 500px;
+            width: 100%;
+            margin: auto;
+            filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.18));
+            transition: transform 0.4s ease;
+        }
+
+        .laptop-container:hover {
+            transform: translateY(-8px);
+        }
+
+        /* ====== Laptop Frame ====== */
+        .laptop-frame {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* ====== Screen Area ====== */
+        .screen-area {
+            position: absolute;
+            top: 7.5%;
+            left: 13.8%;
+            right: 13.8%;
+            bottom: 12%;
+            overflow: hidden;
+            background: #111827;
+            border-radius: 6px;
+        }
+
+        /* ====== Glare Effect ====== */
+        .screen-area::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(circle at 20% 20%,
+                    rgba(255, 255, 255, 0.08) 0%,
+                    transparent 60%);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+            pointer-events: none;
+            z-index: 2;
+        }
+
+        .laptop-container:hover .screen-area::before {
+            opacity: 1;
+        }
+
+        /* ====== Website Image Scroll Effect ====== */
+        .website-image {
+            position: absolute;
+            width: 100%;
+            height: auto;
+            min-height: 200%;
+            object-fit: cover;
+            transition: transform 8s ease-in-out;
+            cursor: zoom-in;
+        }
+
+        /* Smooth Vertical Scroll */
+        .laptop-container:hover .website-image {
+            transform: translateY(-100%);
+        }
+
+        /* ====== Image Viewer Modal ====== */
+        .viewer {
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.9);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            z-index: 9999;
+            cursor: zoom-out;
+        }
+
+        .viewer img {
+            max-width: 90%;
+            max-height: 90%;
+            border-radius: 8px;
+        }
     </style>
 
+    <script src="https://unpkg.com/gsap@3/dist/gsap.min.js"></script>
+    <script src="https://unpkg.com/gsap@3/dist/ScrollTrigger.min.js"></script>
 
     <section class="relative min-h-screen flex items-center px-6 py-20 md:py-32 overflow-hidden">
 
@@ -171,10 +273,7 @@
 
                 </p>
 
-                <a href="#contact"
-                    class="inline-block bg-[#CC071E] hover:bg-[#b30718] text-white font-semibold px-8 py-4 rounded-full text-lg transition-all duration-300 shadow-lg hover:shadow-2xl hover:scale-105">
-                    Get in Touch
-                </a>
+                <x-button text="Get in Touch" link="#contact" />
 
             </div>
 
@@ -265,22 +364,79 @@
         </div>
     </div>
 
-    <section class="">
-        <div class="max-w-7xl mx-auto px-6 grid grid-cols-4">
-            <div class="bg-neutral-primary-soft block max-w-sm border border-default rounded-base shadow-xs">
-                <a href="#">
-                    <img class="rounded-t-base" src="/docs/images/blog/image-1.jpg" alt="" />
+    {{-- card Section  --}}
+    <section class="py-16">
+    <div class="max-w-7xl mx-auto px-6 lg:px-8 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
 
-                <div class="p-6 text-center">
-                        <h5 class="mt-3 mb-6 text-2xl font-semibold tracking-tight text-heading">Streamlining your design
-                            process today.</h5>
-                    </a>
+        <!-- Left Content -->
+        <div>
+            <h2 class="text-3xl lg:text-4xl font-bold mb-6 leading-snug">
+                Advanced Technology for
+                <span class="text-[#B30718]">Seamless Transactions</span>
+            </h2>
+
+            <p class="text-gray-600 mb-6 leading-relaxed">
+                Leverage our state-of-the-art technology to streamline your payment
+                processes, making transactions faster, more secure, and easier to manage.
+            </p>
+
+            <x-button text="Explore More" link="#" />
+        </div>
+
+        <!-- Right Card Section -->
+        <div class="relative">
+
+            <!-- Background Image Container -->
+            <div class="rounded-3xl overflow-hidden relative flex items-end card-bg-image p-2">
+                <!-- Content Card -->
+                <div class="relative bg-white rounded-2xl p-7 m-6 w-full">
+
+                    <!-- Item 1 -->
+                    <div class="pb-4 border-b border-gray-200">
+                        <h3 class="text-2xl font-semibold mb-1">Scalability</h3>
+                        <p class="text-gray-600 text-sm">
+                            Grow your business without limits.
+                        </p>
+                    </div>
+
+                    <!-- Item 2 -->
+                    <div class="py-4 border-b border-gray-200">
+                        <h3 class="text-2xl font-semibold mb-1">Speed</h3>
+                        <p class="text-gray-600 text-sm">
+                            Fast transaction processing, minimizing delays.
+                        </p>
+                    </div>
+
+                    <!-- Item 3 -->
+                    <div class="pt-4">
+                        <h3 class="text-xl font-semibold mb-1">Integration</h3>
+                        <p class="text-gray-600 text-sm">
+                            Easy integration with your existing systems.
+                        </p>
+                    </div>
+
                 </div>
             </div>
 
         </div>
-    </section>
 
+    </div>
+</section>
+
+    @php
+        $services = [
+            ['title' => 'Design Process', 'image' => 'https://picsum.photos/500/600?1'],
+            ['title' => 'Creative Strategy', 'image' => 'https://picsum.photos/500/600?2'],
+            ['title' => 'Brand Identity', 'image' => 'https://picsum.photos/500/600?3'],
+            ['title' => 'UI/UX Solutions', 'image' => 'https://picsum.photos/500/600?4'],
+            ['title' => 'Web Development', 'image' => 'https://picsum.photos/500/600?5'],
+            ['title' => 'Marketing Growth', 'image' => 'https://picsum.photos/500/600?6'],
+            ['title' => 'Product Design', 'image' => 'https://picsum.photos/500/600?7'],
+            ['title' => 'Business Consulting', 'image' => 'https://picsum.photos/500/600?8'],
+        ];
+    @endphp
+
+    <x-services-grid :services="$services" />
 
 
     {{-- <x-blog-featured-insights /> --}}
@@ -291,7 +447,7 @@
 
             <!-- LEFT CONTENT -->
             <div class="sticky top-32 h-fit lg:pr-8">
-                <p class="text-teal-500 tracking-[4px] uppercase mb-6 font-medium">
+                <p class="text-[#CC071E] tracking-[4px] uppercase mb-6 font-medium">
                     Featured Insights
                 </p>
 
@@ -303,10 +459,7 @@
                     From Concept to Completion
                 </p>
 
-                <button
-                    class="bg-teal-500 hover:bg-teal-600 text-white px-10 py-5 rounded-full text-lg font-medium transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105">
-                    Explore More
-                </button>
+                <x-button text="Explore More" link="#insights" />
             </div>
 
             <!-- RIGHT SIDE -->
@@ -315,7 +468,7 @@
                 <!-- COLUMN 1 (2 CARDS) -->
                 <div class="flex flex-col gap-8 w-1/3 parallax-slow">
 
-                    <div class="card h-[280px]">
+                    <div class="card h-[260px]">
                         <img src="https://images.unsplash.com/photo-1556740738-b6a63e27c4df?w=800" />
                         <div class="overlay">
                             <div>
@@ -328,7 +481,7 @@
                         </div>
                     </div>
 
-                    <div class="card h-[280px]">
+                    <div class="card h-[260px]">
                         <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=800" />
                         <div class="overlay">
                             <div>
@@ -340,7 +493,7 @@
                             <button>Explore →</button>
                         </div>
                     </div>
-                    <div class="card h-[280px]">
+                    <div class="card h-[260px]">
                         <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=800" />
                         <div class="overlay">
                             <div>
@@ -358,7 +511,7 @@
                 <!-- COLUMN 2 (3 CARDS) -->
                 <div class="flex flex-col gap-8 w-1/3 mt-20 parallax-fast">
 
-                    <div class="card h-[280px]">
+                    <div class="card h-[260px]">
                         <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800" />
                         <div class="overlay">
                             <div>
@@ -371,7 +524,7 @@
                         </div>
                     </div>
 
-                    <div class="card h-[280px]">
+                    <div class="card h-[260px]">
                         <img src="https://images.unsplash.com/photo-1492724441997-5dc865305da7?w=800" />
                         <div class="overlay">
                             <div>
@@ -384,7 +537,7 @@
                         </div>
                     </div>
 
-                    <div class="card h-[280px]">
+                    <div class="card h-[260px]">
                         <img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?w=800" />
                         <div class="overlay">
                             <div>
@@ -402,7 +555,7 @@
                 <!-- COLUMN 3 (3 CARDS) -->
                 <div class="hidden lg:flex flex-col gap-8 w-1/3 mt-40 parallax-slow">
 
-                    <div class="card h-[280px]">
+                    <div class="card h-[260px]">
                         <img src="https://images.unsplash.com/photo-1556740738-b6a63e27c4df?w=800" />
                         <div class="overlay">
                             <div>
@@ -415,7 +568,7 @@
                         </div>
                     </div>
 
-                    <div class="card h-[280px]">
+                    <div class="card h-[260px]">
                         <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=800" />
                         <div class="overlay">
                             <div>
@@ -447,6 +600,206 @@
         </div>
     </section>
 
+
+    {{-- Project Cards with Parallax Scroll --}}
+    <div class="sub-title">
+        <h3>Our Projects</h3>
+    </div>
+    <div class="project-item grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 max-w-7xl mx-auto px-6 py-20">
+
+        <div class="laptop-container group">
+
+            <!-- Laptop Frame -->
+            <img src="{{ asset('images/laptop-mockup.png') }}" alt="Laptop frame" class="laptop-frame" loading="lazy">
+
+            <!-- Screen Area -->
+            <div class="screen-area">
+                <img src="{{ asset('images/project-16.webp') }}" alt="Project 1" class="website-image"
+                    onclick="openViewer(this)" loading="lazy">
+            </div>
+
+        </div>
+        <div class="laptop-container group">
+
+            <!-- Laptop Frame -->
+            <img src="{{ asset('images/laptop-mockup.png') }}" alt="Laptop frame" class="laptop-frame" loading="lazy">
+
+            <!-- Screen Area -->
+            <div class="screen-area">
+                <img src="{{ asset('images/project-16.webp') }}" alt="Project 1" class="website-image"
+                    onclick="openViewer(this)" loading="lazy">
+            </div>
+
+        </div>
+        <div class="laptop-container group">
+
+            <!-- Laptop Frame -->
+            <img src="{{ asset('images/laptop-mockup.png') }}" alt="Laptop frame" class="laptop-frame" loading="lazy">
+
+            <!-- Screen Area -->
+            <div class="screen-area">
+                <img src="{{ asset('images/project-16.webp') }}" alt="Project 1" class="website-image"
+                    onclick="openViewer(this)" loading="lazy">
+            </div>
+
+        </div>
+        <div class="laptop-container group">
+
+            <!-- Laptop Frame -->
+            <img src="{{ asset('images/laptop-mockup.png') }}" alt="Laptop frame" class="laptop-frame" loading="lazy">
+
+            <!-- Screen Area -->
+            <div class="screen-area">
+                <img src="{{ asset('images/project-16.webp') }}" alt="Project 1" class="website-image"
+                    onclick="openViewer(this)" loading="lazy">
+            </div>
+
+        </div>
+        <div class="laptop-container group">
+
+            <!-- Laptop Frame -->
+            <img src="{{ asset('images/laptop-mockup.png') }}" alt="Laptop frame" class="laptop-frame" loading="lazy">
+
+            <!-- Screen Area -->
+            <div class="screen-area">
+                <img src="{{ asset('images/project-16.webp') }}" alt="Project 1" class="website-image"
+                    onclick="openViewer(this)" loading="lazy">
+            </div>
+
+        </div>
+        <div class="laptop-container group">
+
+            <!-- Laptop Frame -->
+            <img src="{{ asset('images/laptop-mockup.png') }}" alt="Laptop frame" class="laptop-frame" loading="lazy">
+
+            <!-- Screen Area -->
+            <div class="screen-area">
+                <img src="{{ asset('images/project-16.webp') }}" alt="Project 1" class="website-image"
+                    onclick="openViewer(this)" loading="lazy">
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Image Viewer Modal -->
+    <div id="imageViewer" class="viewer" onclick="closeViewer()">
+        <img id="viewerImg" src="">
+    </div>
+
+
+
+    <section class="relative py-32 bg-[#f5f7f9] overflow-hidden">
+
+        <div class="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-20">
+
+            <!-- LEFT CONTENT (Sticky) -->
+            <div class="sticky top-32 h-fit">
+                <p class="text-teal-500 tracking-[4px] uppercase mb-6 text-sm">
+                    Our Capabilities
+                </p>
+
+                <h2 class="text-5xl font-bold text-black leading-tight mb-8">
+                    Transforming Ideas <br>
+                    Into Digital Reality
+                </h2>
+
+                <p class="text-gray-600 text-lg leading-relaxed mb-10">
+                    We help startups and enterprises build scalable, secure and
+                    high-performing digital products with modern technologies.
+                </p>
+
+                <button class="px-8 py-4 bg-black text-white rounded-full hover:bg-teal-500 transition duration-300">
+                    Explore More
+                </button>
+            </div>
+
+            <!-- RIGHT CARDS -->
+            <div class="space-y-10">
+
+                <!-- Card 1 -->
+                <div class="animated-card bg-white p-10 rounded-3xl shadow-xl">
+                    <h3 class="text-2xl font-semibold mb-4">Product Development</h3>
+                    <p class="text-gray-600">
+                        End-to-end product engineering from idea validation to deployment.
+                    </p>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="animated-card bg-white p-10 rounded-3xl shadow-xl">
+                    <h3 class="text-2xl font-semibold mb-4">UI/UX Design</h3>
+                    <p class="text-gray-600">
+                        Human-centered designs that enhance user engagement and retention.
+                    </p>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="animated-card bg-white p-10 rounded-3xl shadow-xl">
+                    <h3 class="text-2xl font-semibold mb-4">Cloud Solutions</h3>
+                    <p class="text-gray-600">
+                        Scalable and secure cloud infrastructure tailored for your growth.
+                    </p>
+                </div>
+
+                <!-- Card 4 -->
+                <div class="animated-card bg-white p-10 rounded-3xl shadow-xl">
+                    <h3 class="text-2xl font-semibold mb-4">AI & Automation</h3>
+                    <p class="text-gray-600">
+                        Intelligent automation solutions powered by machine learning.
+                    </p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section class="py-20 bg-[#f5f7f9]">
+
+        <div
+            class="relative max-w-6xl mx-auto px-16 py-6
+                bg-[#101828]
+                rounded-3xl flex items-center max-h-[340px]">
+
+            <!-- LEFT CONTENT -->
+            <div class="w-full lg:w-1/2 z-10">
+
+                <h2 class="text-4xl font-bold leading-tight mb-6">
+                    <span class="text-red-600">GRAPHIC DESIGN</span>
+                    <span class="text-white"> EVENT<br>COMING SOON!</span>
+                </h2>
+
+                <p class="text-gray-300 mb-8 max-w-md leading-relaxed">
+                    Lorem Ipsum is simply dummy text of the printing and
+                    typesetting industry. Lorem Ipsum has been the industry's
+                    standard dummy text ever since the 1500s.
+                </p>
+
+                <a href="#register"
+                    class="inline-block bg-red-600 hover:bg-red-700
+                      text-white font-semibold px-8 py-4
+                      rounded-full text-lg transition duration-300">
+                    Register now!
+                </a>
+
+            </div>
+
+            <!-- RIGHT IMAGE -->
+            <div class="hidden lg:flex w-1/2 justify-end relative">
+                <img src="{{ asset('images/man-with-glasses-holding-blue-folder-with-books 1.png') }}" alt="Student"
+                    class="relative z-10 max-h-[440px] object-contain bottom-[50px]">
+            </div>
+
+            <!-- FLOATING DOTS -->
+            <span class="absolute top-10 right-32 w-6 h-6 bg-blue-500 rounded-full"></span>
+            <span class="absolute top-16 right-[416px] w-4 h-4 bg-orange-400 rounded-full"></span>
+            <span class="absolute bottom-8 right-[496px] w-8 h-8 bg-purple-500 rounded-full opacity-80"></span>
+            <span class="absolute bottom-20 left-84 w-5 h-5 bg-teal-400 rounded-full"></span>
+
+        </div>
+
+    </section>
+
+
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
 
@@ -472,6 +825,34 @@
                 scrub: 1.2,
             }
         });
+    </script>
+
+    <script>
+        gsap.registerPlugin(ScrollTrigger);
+
+        gsap.utils.toArray(".animated-card").forEach((card, i) => {
+            gsap.from(card, {
+                y: 100,
+                opacity: 0,
+                duration: 1,
+                ease: "power3.out",
+                scrollTrigger: {
+                    trigger: card,
+                    start: "top 85%",
+                    toggleActions: "play none none none"
+                }
+            });
+        });
+
+
+        function openViewer(img) {
+            document.getElementById("imageViewer").style.display = "flex";
+            document.getElementById("viewerImg").src = img.src;
+        }
+
+        function closeViewer() {
+            document.getElementById("imageViewer").style.display = "none";
+        }
     </script>
 
 @endsection

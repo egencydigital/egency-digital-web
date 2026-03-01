@@ -20,10 +20,10 @@
         <div>
             <h3 class="text-white text-xl font-semibold mb-4">Quick Links</h3>
             <ul class="space-y-2 text-[#E5E5E5]">
-                <li class="hover:text-[#CC0710] cursor-pointer">Home</li>
-                <li class="hover:text-[#CC0710] cursor-pointer">About Us</li>
-                <li class="hover:text-[#CC0710] cursor-pointer">Services</li>
-                <li class="hover:text-[#CC0710] cursor-pointer">Contact</li>
+                <a href="{{ url('/') }}"><li class="hover:text-[#CC0710] cursor-pointer">Home</li></a>
+                <a href="{{ url('/about-us') }}"><li class="hover:text-[#CC0710] cursor-pointer">About Us</li></a>
+                <a href="{{ url('/services') }}"><li class="hover:text-[#CC0710] cursor-pointer">Services</li></a>
+                <a href="{{ url('/contact') }}"><li class="hover:text-[#CC0710] cursor-pointer">Contact</li></a>
             </ul>
         </div>
 
