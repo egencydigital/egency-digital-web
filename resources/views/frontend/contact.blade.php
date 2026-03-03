@@ -68,27 +68,23 @@
 
                 <!-- CONTACT FORM -->
                 <div class="lg:col-span-2 border-8 rounded-2xl   border-[#F7F7F8] p-12">
-                    <form class="space-y-6">
-
+                    <form class="space-y-6" id="submitForm">
+                        @csrf
                         <div class="grid md:grid-cols-2 gap-6">
-                            <input type="text" placeholder="First Name"
+                            <input type="text" name="name" placeholder="First Name"
                                 class="w-full bg-[#F7F7F8] rounded-full px-6 py-3 outline-none focus:ring-2 focus:ring-[#cc0710]">
 
-                            <input type="text" placeholder="Phone"
+                            <input type="text" placeholder="Phone" name="phone"
                                 class="w-full bg-[#F7F7F8] rounded-full px-6 py-3 outline-none focus:ring-2 focus:ring-[#cc0710]">
                         </div>
 
-                        <input type="email" placeholder="Email"
+                        <input type="email" placeholder="Email" name="email"
                             class="w-full bg-[#F7F7F8] rounded-full px-6 py-3 outline-none focus:ring-2 focus:ring-[#cc0710]">
 
-                        <textarea rows="5" placeholder="Message"
+                        <textarea rows="5" placeholder="Message" name="message"
                             class="w-full bg-[#F7F7F8] rounded-2xl px-6 py-4 outline-none focus:ring-2 focus:ring-[#cc0710]"></textarea>
 
-                        {{-- <button
-                        class="bg-[#5f8f91] text-white px-8 py-3 rounded-full hover:bg-[#4c7779] transition">
-                        Submit Button
-                    </button> --}}
-                        <button class="bg-[#E50913] text-white px-8 py-3 rounded-full hover:bg-[#4c7779] transition">
+                        <button type="submit" class="bg-[#E50913] text-white px-8 py-3 rounded-full hover:bg-[#4c7779] transition">
                             Submit Button
                         </button>
 
@@ -187,4 +183,77 @@
             </div>
         </div>
     </section>
+
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+<script>
+$(document).ready(function(){
+
+    $('#submitForm').on('submit', function(e){
+        e.preventDefault();
+
+        let form = $(this);
+        let formData = form.serialize();
+        let button = form.find('button');
+
+        button.prop('disabled', true).text('Sending...');
+
+        $.ajax({
+            url: "{{ route('user.message') }}",
+            type: "POST",
+            data: formData,
+
+            success: function(response){
+
+                button.prop('disabled', false).text('Submit Button');
+
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Success',
+                    text: response.message,
+                    confirmButtonColor: '#E50913'
+                });
+
+                form[0].reset();
+            },
+
+            error: function(xhr){
+
+                button.prop('disabled', false).text('Submit Button');
+
+                if(xhr.status === 422){
+
+                    let errors = xhr.responseJSON.errors;
+                    let errorMessage = "";
+
+                    $.each(errors, function(key, value){
+                        errorMessage += value[0] + "<br>";
+                    });
+
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Validation Error',
+                        html: errorMessage,
+                        confirmButtonColor: '#E50913'
+                    });
+
+                } else {
+
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Oops...',
+                        text: 'Something went wrong!',
+                        confirmButtonColor: '#E50913'
+                    });
+
+                }
+            }
+        });
+
+    });
+
+});
+</script>
+
 @endsection

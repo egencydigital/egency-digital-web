@@ -19,21 +19,32 @@
         <!-- Quick Links -->
         <div>
             <h3 class="text-white text-xl font-semibold mb-4">Quick Links</h3>
-            <ul class="space-y-2 text-[#E5E5E5]">
-                <a href="{{ url('/') }}"><li class="hover:text-[#CC0710] cursor-pointer">Home</li></a>
-                <a href="{{ url('/about-us') }}"><li class="hover:text-[#CC0710] cursor-pointer">About Us</li></a>
-                <a href="{{ url('/services') }}"><li class="hover:text-[#CC0710] cursor-pointer">Services</li></a>
-                <a href="{{ url('/contact') }}"><li class="hover:text-[#CC0710] cursor-pointer">Contact</li></a>
+            <ul class="space-y-2 text-[#E5E5E5] flex flex-col gap-0.5">
+                <a href="{{ url('/') }}">
+                    <li class="hover:text-[#CC0710] cursor-pointer">Home</li>
+                </a>
+                <a href="{{ url('/about-us') }}">
+                    <li class="hover:text-[#CC0710] cursor-pointer">About Us</li>
+                </a>
+                <a href="{{ url('/services') }}">
+                    <li class="hover:text-[#CC0710] cursor-pointer">Services</li>
+                </a>
+                <a href="{{ url('/contact') }}">
+                    <li class="hover:text-[#CC0710] cursor-pointer">Contact</li>
+                </a>
             </ul>
         </div>
 
         <!-- Contact Info -->
         <div>
             <h3 class="text-white text-xl font-semibold mb-4">Contact Us</h3>
-            <p class="text-[#E5E5E5]">Email: <a href="mailto:info@example.com"
-                    class="hover:text-[#CC0710]">info@example.com</a></p>
-            <p class="text-[#E5E5E5]">Phone: <a href="tel:+1234567890" class="hover:text-[#CC0710]">+1234567890</a></p>
-            <p class="text-[#E5E5E5]">Address: 123 Main Street, City, Country</p>
+            <div class="flex flex-col gap-1">
+                <p class="text-[#E5E5E5]">Email: <a href="mailto:info@example.com"
+                        class="hover:text-[#CC0710]">info@example.com</a></p>
+                <p class="text-[#E5E5E5]">Phone: <a href="tel:+1234567890" class="hover:text-[#CC0710]">+1234567890</a>
+                </p>
+                <p class="text-[#E5E5E5]">Address: 123 Main Street, City, Country</p>
+            </div>
         </div>
 
     </div>

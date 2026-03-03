@@ -57,7 +57,8 @@
         }
 
         .container button {
-            background-color: #152da8;
+            /* background-color: #152da8; */
+            background-color: #CC071E;
             color: #fff;
             font-size: 12px;
             padding: 10px 45px;
@@ -175,9 +176,9 @@
         }
 
         .toggle {
-            background-color: #512da8;
+            background-color: #CC071E;
             height: 100%;
-            background: linear-gradient(to right, #5c6bc0, #512da8);
+            background: linear-gradient(to right, #CC071E, #CC071E);
             color: #fff;
             position: relative;
             left: -100%;
@@ -257,11 +258,11 @@
                 <input type="email" name="email" id="" value="{{ old('email') }}"
                     class="form-control @error('email') is-invalid
           @enderror " placeholder="Enter Your Email"
-                    >
+                    required>
                 <input type="password" name="password" id=""
                     class="form-control @error('password') is-invalid
           @enderror"
-                    placeholder="Enter Your Password" >
+                    placeholder="Enter Your Password" required>
                 <a href="">Forget Your Password?</a>
                 <button>Sign In</button>
             </form>
