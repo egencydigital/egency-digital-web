@@ -245,7 +245,7 @@
     <script src="https://unpkg.com/gsap@3/dist/gsap.min.js"></script>
     <script src="https://unpkg.com/gsap@3/dist/ScrollTrigger.min.js"></script>
 
-    <section class="relative min-h-screen flex items-center px-6 py-20 md:py-32 overflow-hidden">
+    <section class="relative min-h-screen flex items-center px-6 py-20 md:pb-12 md:pt-32 overflow-hidden">
 
         <!-- Background Video -->
         <video src="{{ asset('video/15307455_2560_1440_30fps.mp4') }}" autoplay muted loop playsinline preload="none"
@@ -259,7 +259,7 @@
         <div class="relative z-10 max-w-7xl mx-auto w-full">
 
             <!-- Hero Content -->
-            <div class="max-w-3xl text-left">
+            <div class="max-w-3xl text-left mt-3">
 
                 <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold text-white leading-tight mb-6">
                     WE ARE Egency Digital!
@@ -278,15 +278,24 @@
             </div>
 
             <!-- Featured In Section -->
-            <div class="mt-16 md:mt-24">
+            <div class="mt-16 md:mt-18">
 
-                <p class="text-gray-300 text-lg mb-6 text-left">
+                <p class="text-white text-lg mb-6 text-left">
                     Featured In:
                 </p>
 
                 <div class="flex flex-wrap items-center gap-8 md:gap-14 opacity-90">
+                    <div class="flex flex-col gap-3">
+                        <h3 class="text-3xl text-white font-extrabold">Behance</h3>
+                        <h3 class="text-3xl text-white font-extrabold">FaceBook</h3>
+                    </div>
+                    <div class="flex flex-col gap-3">
+                        <h3 class="text-3xl text-white font-extrabold">Google</h3>
+                        <h3 class="text-3xl text-white font-extrabold">Behance</h3>
+                    </div>
 
-                    <img src="{{ asset('images/logos/forbes.png') }}" alt="Forbes"
+
+                    {{-- <img src="{{ asset('images/2.png') }}" alt="Forbes"
                         class="h-8 md:h-10 object-contain hover:opacity-100 transition duration-300">
 
                     <img src="{{ asset('images/logos/business-insider.png') }}" alt="Business Insider"
@@ -296,7 +305,7 @@
                         class="h-8 md:h-10 object-contain hover:opacity-100 transition duration-300">
 
                     <img src="{{ asset('images/logos/mashable.png') }}" alt="Mashable"
-                        class="h-8 md:h-10 object-contain hover:opacity-100 transition duration-300">
+                        class="h-8 md:h-10 object-contain hover:opacity-100 transition duration-300"> --}}
 
                 </div>
 
@@ -614,7 +623,7 @@
 
             <!-- Screen Area -->
             <div class="screen-area">
-                <img src="{{ asset('images/project-16.webp') }}" alt="Project 1" class="website-image"
+                <img src="{{ asset('images/screencapture-a-texofficial-2026-03-01-17_22_38.png') }}" alt="Project 1" class="website-image"
                     onclick="openViewer(this)" loading="lazy">
             </div>
 
@@ -638,7 +647,7 @@
 
             <!-- Screen Area -->
             <div class="screen-area">
-                <img src="{{ asset('images/project-16.webp') }}" alt="Project 1" class="website-image"
+                <img src="{{ asset('images/screencapture-onekarbn-2026-03-01-16_34_32.png') }}" alt="Project 1" class="website-image"
                     onclick="openViewer(this)" loading="lazy">
             </div>
 
@@ -662,7 +671,7 @@
 
             <!-- Screen Area -->
             <div class="screen-area">
-                <img src="{{ asset('images/project-16.webp') }}" alt="Project 1" class="website-image"
+                <img src="{{ asset('images/screencapture-onekarbn-2026-03-01-16_34_32.png') }}" alt="Project 1" class="website-image"
                     onclick="openViewer(this)" loading="lazy">
             </div>
 
@@ -674,7 +683,7 @@
 
             <!-- Screen Area -->
             <div class="screen-area">
-                <img src="{{ asset('images/project-16.webp') }}" alt="Project 1" class="website-image"
+                <img src="{{ asset('images/screencapture-a-texofficial-2026-03-01-17_22_38.png') }}" alt="Project 1" class="website-image"
                     onclick="openViewer(this)" loading="lazy">
             </div>
 
@@ -773,7 +782,7 @@
                     standard dummy text ever since the 1500s.
                 </p>
 
-                <a href="#register"
+                <a href="{{ url('/contact') }}"
                     class="inline-block bg-red-600 hover:bg-red-700
                       text-white font-semibold px-8 py-4
                       rounded-full text-lg transition duration-300">
@@ -798,6 +807,75 @@
 
     </section>
 
+    {{-- contact Form --}}
+
+    <section class="py-16 bg-[#FFFFFF]">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+
+            <div class="grid lg:grid-cols-3 gap-12">
+
+                <!-- CONTACT FORM -->
+                <div class="lg:col-span-2 border-8 rounded-2xl   border-[#F7F7F8] p-12">
+                    <form class="space-y-6">
+
+                        <div class="grid md:grid-cols-2 gap-6">
+                            <input type="text" placeholder="First Name"
+                                class="w-full bg-[#F7F7F8] rounded-full px-6 py-3 outline-none focus:ring-2 focus:ring-[#cc0710]">
+
+                            <input type="text" placeholder="Phone"
+                                class="w-full bg-[#F7F7F8] rounded-full px-6 py-3 outline-none focus:ring-2 focus:ring-[#cc0710]">
+                        </div>
+
+                        <input type="email" placeholder="Email"
+                            class="w-full bg-[#F7F7F8] rounded-full px-6 py-3 outline-none focus:ring-2 focus:ring-[#cc0710]">
+
+                        <textarea rows="5" placeholder="Message"
+                            class="w-full bg-[#F7F7F8] rounded-2xl px-6 py-4 outline-none focus:ring-2 focus:ring-[#cc0710]"></textarea>
+
+                        {{-- <button
+                        class="bg-[#5f8f91] text-white px-8 py-3 rounded-full hover:bg-[#4c7779] transition">
+                        Submit Button
+                    </button> --}}
+                        <button class="bg-[#E50913] text-white px-8 py-3 rounded-full hover:bg-[#4c7779] transition">
+                            Submit Button
+                        </button>
+
+                    </form>
+                </div>
+
+                <!-- RIGHT SIDE -->
+                <div class="lg:col-span-1">
+                    <div class="flex flex-col gap-4">
+
+                        <!-- IMAGE CARD -->
+                        <div class="rounded-2xl overflow-hidden shadow-md h-[400px] bg-cover bg-center"
+                            style="background-image: url('images/image.png');">
+                        </div>
+
+                        <!-- CONTACT INFO CARD -->
+                        <div class="bg-[#F7F7F8] rounded-2xl p-6 flex items-center justify-between gap-4 shadow-sm">
+
+                            <div>
+                                <h4 class="font-semibold text-lg mb-1">
+                                    You Can Email Here
+                                </h4>
+                                <p class="text-sm text-gray-600">
+                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                                </p>
+                            </div>
+
+                            <div class="bg-[#E50913] p-4 rounded-full shadow-md flex items-center justify-center">
+                                <img src="{{ asset('images/Icon.png') }}" alt="">
+                            </div>
+
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
 
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>

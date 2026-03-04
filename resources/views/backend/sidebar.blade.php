@@ -221,9 +221,15 @@
                 </a>
             </li>
             <li>
-                <a href="#" class="nav-item flex items-center gap-3 px-3 py-2 text-sm font-500 text-slate-600 rounded-lg transition-colors hover:bg-indigo-50 hover:text-indigo-700 group" onclick="setActive(this)">
+                <a href="{{ url('/showRequest') }}" class="nav-item flex items-center gap-3 px-3 py-2 text-sm font-500 text-slate-600 rounded-lg transition-colors hover:bg-indigo-50 hover:text-indigo-700 group" onclick="setActive(this)">
                     <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"/></svg>
-                    Users
+                    Users Request
+                </a>
+            </li>
+            <li>
+                <a href="{{ url('/teams') }}" class="nav-item flex items-center gap-3 px-3 py-2 text-sm font-500 text-slate-600 rounded-lg transition-colors hover:bg-indigo-50 hover:text-indigo-700 group" onclick="setActive(this)">
+                    <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"/></svg>
+                    Team Members
                 </a>
             </li>
             <li>
@@ -243,10 +249,18 @@
                 </a>
             </li>
             <li>
-                <a href="#" class="nav-item flex items-center gap-3 px-3 py-2 text-sm font-500 text-slate-600 rounded-lg transition-colors hover:bg-indigo-50 hover:text-indigo-700 group" onclick="setActive(this)">
-                    <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"/></svg>
-                    Sign In
-                </a>
+                 <form action="{{ url('/logout') }}" method="POST">
+    @csrf
+    <button type="submit"
+        class="flex items-center gap-3 px-3 py-2 text-sm text-red-500 hover:bg-red-50 rounded-lg transition-colors group">
+
+        <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round"
+                  d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"/>
+        </svg>
+        Sign out
+    </button>
+</form>
             </li>
         </ul>
     </div>
@@ -254,7 +268,10 @@
 
 <!-- MAIN CONTENT -->
 <div id="main-content" class="pt-14 shifted min-h-screen transition-all duration-300">
-    <div class="p-6">
+
+    @yield('body')
+
+    {{-- <div class="p-6">
         <div class="mb-6">
             <h1 class="brand-font text-2xl font-700 text-slate-900">Dashboard</h1>
             <p class="text-slate-500 text-sm mt-1">Welcome back, Neil! Here's what's happening today.</p>
@@ -288,7 +305,7 @@
         <div class="bg-white rounded-xl border border-dashed border-slate-200 p-10 flex items-center justify-center">
             <p class="text-slate-400 text-sm">Your content goes here</p>
         </div>
-    </div>
+    </div> --}}
 </div>
 
 <script>

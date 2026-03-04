@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\TeamController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
@@ -33,5 +34,20 @@ Route::middleware('admin.auth')->group(function () {
     Route::get('/dashboard', function () {
         return view('backend.sidebar');
     })->name('dashboard');
+
+    // User Request
+    Route::get('/showRequest', [UserController::class, 'showRequest']);
+    Route::post('/userRequest', [UserController::class, 'userRequest'])->name('user.message');
+    /* =================================================================== */
+    // Team Section Routes
+    Route::get('/teams', [TeamController::class, 'ShowMember']);
+    Route::get('/addMember/{id?}', [TeamController::class, 'addMemberPage']);
+    Route::delete('/deleteTeam/{id}', [TeamController::class, 'deleteMember'])->name('deleteTeam');
+
+    // Route::get('/team', function () {
+    //     return view('backend.teamMember');
+    // });
+    Route::post('/createTeam/{id?}', [TeamController::class, 'createTeam'])->name('createTeam');
+
 
 });
