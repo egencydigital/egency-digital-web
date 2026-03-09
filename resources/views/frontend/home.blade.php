@@ -273,7 +273,7 @@
 
                 </p>
 
-                <x-button text="Get in Touch" link="#contact" />
+                <x-button text="Get in Touch" link="contact" />
 
             </div>
 
