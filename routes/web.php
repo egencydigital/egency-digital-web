@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\BlogController;
 use App\Http\Controllers\TeamController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
@@ -28,7 +29,7 @@ Route::get('/dashboard', function () {
 Route::post('/login', [UserController::class, 'LoginAdmin' ])->name('admin.login');
 Route::post('/logout', [UserController::class, 'logout']);
 
-
+Route::post('/userRequest', [UserController::class, 'userRequest'])->name('user.message');
 
 Route::middleware('admin.auth')->group(function () {
     Route::get('/dashboard', function () {
@@ -37,7 +38,7 @@ Route::middleware('admin.auth')->group(function () {
 
     // User Request
     Route::get('/showRequest', [UserController::class, 'showRequest']);
-    Route::post('/userRequest', [UserController::class, 'userRequest'])->name('user.message');
+
     /* =================================================================== */
     // Team Section Routes
     Route::get('/teams', [TeamController::class, 'ShowMember']);
@@ -49,5 +50,10 @@ Route::middleware('admin.auth')->group(function () {
     // });
     Route::post('/createTeam/{id?}', [TeamController::class, 'createTeam'])->name('createTeam');
 
+    /* ============================================================================== */
+    Route::get('/blogPage', [BlogController::class, 'blogPage']);
+    Route::get('/blogFormPage/{id?}', [BlogController::class, 'blogFormPage']);
+    Route::post('/createBlog/{id?}', [BlogController::class, 'createBlog'])->name('createBlog');
+    Route::delete('/blogDelete/{id}', [BlogController::class, 'blogDelete']);
 
 });
